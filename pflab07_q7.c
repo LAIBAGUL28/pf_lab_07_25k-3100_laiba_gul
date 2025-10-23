@@ -1,27 +1,35 @@
-#include<stdio.h>
-int main()
-{  //pf lab 07 question 7
-	int num[10];
-	int i, j;
+#include <stdio.h>
 
-    for (i = 0; i < 10; i++)
-	 {
-        printf("Enter integer ");
-        scanf("%d", &num[i]);
+int main()
+{// question 7 without nested loop
+    int i, j, l;
+    int id[10];
+
+    printf("ENTER 10 INTEGERS:\n");
+    for (l = 0; l < 10; l++)
+    {
+        scanf("%d", &id[l]);
     }
     for (i = 0; i < 10; i++)
-{
-		for (j = i+1; j < 10; j++)
-	{
-		 if (num[i] == num[j] && num[j] != -1)
-		{
-                num[j] = -1; 
+    {
+        if (id[i] == -1)
+            continue;
+
+        for (j = i + 1; j < 10; j++)
+        {
+            if (id[i] == id[j])
+            {
+                id[j] = -1; 
+            }
         }
-	}
-		
-}  
-	printf("the updated  array is:");
-	for (i = 0; i < 10; i++)
-	printf("  %d",num[i]);
+    }
+
     
+    printf("UPDATED ARRAY:\n");
+    for (i = 0; i < 10; i++)
+    {
+        printf("%d ", id[i]);
+    }
+
+    return 0;
 }
